@@ -1,0 +1,5 @@
+argparse
+colorama
+fleep
+prettytable
+tqdm
