@@ -40,7 +40,7 @@ class DupFinder(object):
 
     def file_hash(self, file_path):
         with open(file_path, 'rb') as _file:
-            md5_hash = hashlib.md5(_file.read()).hexdigest()
+            md5_hash = hashlib.md5(_file.read(65536)).hexdigest()
         return md5_hash
 
     def file_finder(self, directory, extension):
