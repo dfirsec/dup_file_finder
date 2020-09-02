@@ -5,17 +5,26 @@
 Outputs the results to either a table txt file, or option for csv file.
 
 ```
+        ____              _______ __        _______           __
+       / __ \__  ______  / ____(_) /__     / ____(_)___  ____/ /__  _____
+      / / / / / / / __ \/ /_  / / / _ \   / /_  / / __ \/ __  / _ \/ ___/
+     / /_/ / /_/ / /_/ / __/ / / /  __/  / __/ / / / / / /_/ /  __/ /
+    /_____/\__,_/ .___/_/   /_/_/\___/  /_/   /_/_/ /_/\__,_/\___/_/
+               /_/
+                                                            v0.0.3
+                                                            DFIRSec (@pulsecode)
+
 usage: dup_file_finder.py [-h] [-c] WORKING_DIR FILE_TYPE
 
 Duplicate File Finder
 
 positional arguments:
-  WORKING_DIR  path to directory to scan
-  FILE_TYPE    file type (use file extension)
+  WORKING_DIR  directory path to scan
+  FILE_TYPE    file type -- use file extension
 
 optional arguments:
   -h, --help   show this help message and exit
-  -c, --csv    option to send output to csv file
+  -c, --csv    option to send out to csv file
   ```
 
 
@@ -26,12 +35,6 @@ git clone https://github.com/dfirsec/dup_file_finder.git
 cd dup_file_finder
 pip install -r requirements.txt
 ```
-## Requirements
-* argparse
-* colorama
-* fleep
-* prettytable
-* tqdm
 
 ## Example runs
 Standard run with csv option...
