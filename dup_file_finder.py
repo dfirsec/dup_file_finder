@@ -149,5 +149,5 @@ if __name__ == "__main__":
                                                         {__author__}
     """
 
-    print(Fore.CYAN + banner + Fore.RESET)
+    print('{} {} {}'.format(Fore.CYAN, banner, Fore.RESET))
     main()
