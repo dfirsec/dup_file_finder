@@ -7,14 +7,13 @@ import os
 import sys
 from pathlib import Path
 
+import fleep
 from colorama import Back, Fore, Style, init
+from prettytable import PrettyTable
 from tqdm import tqdm
 
-import fleep
-from prettytable import PrettyTable
-
 __author__ = "DFIRSec (@pulsecode)"
-__version__ = "0.0.3"
+__version__ = "0.0.4"
 __description__ = "Search for duplicate files based on extension"
 
 BASE = Path(__file__).resolve().parent
@@ -24,11 +23,11 @@ uniqhashes = []
 mismatch = []
 
 # Unicode Symbols and colors -  ref: http://www.fileformat.info/info/unicode/char/a.htm
-PROCESSING = Fore.CYAN + "\u2BA9" + Style.RESET_ALL     # ⮩
-FOUND = Fore.GREEN + "\u2714" + Style.RESET_ALL         # ✔
-NOTFOUND = Fore.YELLOW + "\u00D8" + Style.RESET_ALL     # Ø
-INVALID = Fore.RED + "\u2718" + Style.RESET_ALL         # ✘
-SEPLINE = Fore.BLACK + Style.BRIGHT + "=" * 40 + Style.RESET_ALL
+PROCESSING = '{} {} {}'.format(Fore.CYAN, "\u2BA9", Fore.RESET)
+FOUND = '{} {} {}'.format(Fore.GREEN, "\u2714", Fore.RESET)
+NOTFOUND = '{} {} {}'.format(Fore.YELLOW, "\u00D8", Fore.RESET)
+INVALID = '{} {} {}'.format(Fore.RED, "\u2718", Fore.RESET)
+SEPLINE = '{} {} {} {}'.format(Fore.BLACK, Style.BRIGHT, "=" * 40, Fore.RESET)
 
 
 class DupFinder(object):
@@ -146,8 +145,8 @@ if __name__ == "__main__":
      / /_/ / /_/ / /_/ / __/ / / /  __/  / __/ / / / / / /_/ /  __/ /
     /_____/\__,_/ .___/_/   /_/_/\___/  /_/   /_/_/ /_/\__,_/\___/_/
                /_/
-                                                            v{__version__}
-                                                            {__author__}
+                                                        v{__version__}
+                                                        {__author__}
     """
 
     print(Fore.CYAN + banner + Fore.RESET)
