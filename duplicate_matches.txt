@@ -1,0 +1,94 @@
++------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------+
+| File                                                                                                                                                       | Hash                             |
++------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------+
+| d:\OneDrive\Documents\Cybersecurity\eBooks\Humble Bundle 2020\shellcoders_handbook_discovering_and_exploiting_security_holes.pdf                           | 02936c7fd573627824ca8293bb29e48e |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\shellcoders_handbook_discovering_and_exploiting_security_holes.pdf                                              | 02936c7fd573627824ca8293bb29e48e |
+| d:\OneDrive\Documents\Automotive\TMoss\Automotive Fluke Testing.pdf                                                                                        | 1e1df4e3a43a6b021b2729e7b809342e |
+| d:\OneDrive\Documents\Automotive\Tech\PDF\Automotive Fluke Testing.pdf                                                                                     | 1e1df4e3a43a6b021b2729e7b809342e |
+| d:\OneDrive\Documents\Automotive\Tech\Transmission\TH400\TH400 HYDRAULIC SYSTEM TECHNICAL.pdf                                                              | 209f9ddfac67f37290ad679d5fd1a890 |
+| d:\OneDrive\Documents\Automotive\Tech\Transmission\TH400\VOLUME 1 CHAPTER 6.pdf                                                                            | 209f9ddfac67f37290ad679d5fd1a890 |
+| d:\Downloads\Tools\splunk-quick-reference-guide.pdf                                                                                                        | 23f1743e5cff431a2156d28bc24a9d77 |
+| d:\Downloads\splunk-quick-reference-guide.pdf                                                                                                              | 23f1743e5cff431a2156d28bc24a9d77 |
+| d:\OneDrive\Documents\Automotive\EPQ215_18-38.pdf                                                                                                          | 265fd4c7b1f1eb46f9a877b11078c706 |
+| d:\OneDrive\Documents\Automotive\Tech\EPQ215_18-38.pdf                                                                                                     | 265fd4c7b1f1eb46f9a877b11078c706 |
+| d:\OneDrive\Documents\Automotive\Tech\PDF\Valve Spring Tech.pdf                                                                                            | 265fd4c7b1f1eb46f9a877b11078c706 |
+| d:\OneDrive\Documents\Automotive\Tech\PDF\Solid-State-Relay-HT030202.pdf                                                                                   | 3697ed3ab6fe5e7a09debf8fbe5e713d |
+| d:\OneDrive\Documents\PDF\Solid-State-Relay-HT030202.pdf                                                                                                   | 3697ed3ab6fe5e7a09debf8fbe5e713d |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\Humble Bundle 2020\security_engineering_a_guide_to_building_dependable_distributed_systems.pdf                  | 3a292e22d87d46e30ec294790e368758 |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\security_engineering_a_guide_to_building_dependable_distributed_systems.pdf                                     | 3a292e22d87d46e30ec294790e368758 |
+| d:\OneDrive\Holley\Tech and Wiring\Davis Traction Control.pdf                                                                                              | 3dc1b326a46bba03b7297f9d7d9ad329 |
+| d:\OneDrive\Holley\Tech and Wiring\EFI-TC2-Manual.pdf                                                                                                      | 3dc1b326a46bba03b7297f9d7d9ad329 |
+| d:\OneDrive\Holley\Tech and Wiring\techlibrary_efi_tc2manualrev1.pdf                                                                                       | 3dc1b326a46bba03b7297f9d7d9ad329 |
+| d:\OneDrive\Documents\Automotive\TMoss\Wire Ampreage Sizing.pdf                                                                                            | 413aab10adc349b3a4f71a589ec33a1d |
+| d:\OneDrive\Documents\Automotive\Tech\PDF\Wire Ampreage Sizing.pdf                                                                                         | 413aab10adc349b3a4f71a589ec33a1d |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\Humble Bundle 2020\practical_reverse_engineering_x86_x64_arm_windows_kernel_reversing_tools_and_obfuscation.pdf | 44572d7e0e574bfbcdf6a249717351fa |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\practical_reverse_engineering_x86_x64_arm_windows_kernel_reversing_tools_and_obfuscation.pdf                    | 44572d7e0e574bfbcdf6a249717351fa |
+| d:\OneDrive\Documents\WGU\C844 - Cybersecurity\Mitchell_Haddadi_C844_Task1.pdf                                                                             | 49b5970d3648c9fba19556846f603d7c |
+| d:\OneDrive\Documents\WGU\C844 - Cybersecurity\Mitchell_Haddadi_C844_Task1_NMAP.pdf                                                                        | 49b5970d3648c9fba19556846f603d7c |
+| d:\OneDrive\Documents\WGU\C844 - Cybersecurity\Mitchell_Haddadi_C844_Task1_rev1.pdf                                                                        | 49b5970d3648c9fba19556846f603d7c |
+| d:\OneDrive\Documents\WGU\C844 - Cybersecurity\Mitchell_Haddadi_C844_Task1_rev2.pdf                                                                        | 49b5970d3648c9fba19556846f603d7c |
+| d:\OneDrive\Documents\Automotive\Coan_Trans_Conv_Install.pdf                                                                                               | 4b75743393c43530dbf7f2e4461b7cc0 |
+| d:\OneDrive\Documents\Automotive\Tech\Transmission\TH400\Trans_Converter_Fitment.pdf                                                                       | 4b75743393c43530dbf7f2e4461b7cc0 |
+| d:\OneDrive\Holley\Tech and Wiring\Boost Solenoid Example.pdf                                                                                              | 4b935e3f4b265b92d2431e73bb446818 |
+| d:\OneDrive\Holley\Tech and Wiring\techlibrary_199r10629rev.pdf                                                                                            | 4b935e3f4b265b92d2431e73bb446818 |
+| d:\OneDrive\Documents\Automotive\Tech\Transmission\TH400\TH400 Parts Breakdown.pdf                                                                         | 574a10212ac80961effda7457c992bd5 |
+| d:\OneDrive\Documents\Automotive\Tech\Transmission\TH400\TH400_Diagram.pdf                                                                                 | 574a10212ac80961effda7457c992bd5 |
+| d:\OneDrive\Documents\Automotive\Tech\Transmission\TH400\Transtar Parts Catalog.pdf                                                                        | 574a10212ac80961effda7457c992bd5 |
+| d:\Program Files\Arduino\hardware\arduino\avr\firmwares\wifishield\wifi_dnld\src\Doc\gettingstarted.pdf                                                    | 57d3288b2bfc196681bc04fb2d83c073 |
+| d:\Program Files\Arduino\libraries\WiFi\extras\wifi_dnld\src\Doc\gettingstarted.pdf                                                                        | 57d3288b2bfc196681bc04fb2d83c073 |
+| d:\OneDrive\Code\Python\Educational\Python-Automation-Cookbook\Chapter04\documents\dir\file6.pdf                                                           | 59b16fbdbeb76797bbe9cdcf46bcc7b6 |
+| d:\OneDrive\Code\Python\Educational\Python-Automation-Cookbook\Chapter04\documents\dir\subdir\file5.pdf                                                    | 59b16fbdbeb76797bbe9cdcf46bcc7b6 |
+| d:\OneDrive\Code\Python\Educational\Python-Automation-Cookbook\Chapter04\documents\document-1.pdf                                                          | 59b16fbdbeb76797bbe9cdcf46bcc7b6 |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\Humble Bundle 2020\web_application_hackers_handbook_finding_and_exploiting_security_flaws.pdf                   | 6882870a994d9746c968c8ad290a08fa |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\web_application_hackers_handbook_finding_and_exploiting_security_flaws.pdf                                      | 6882870a994d9746c968c8ad290a08fa |
+| d:\OneDrive\Holley\Tech and Wiring\Boost Control.pdf                                                                                                       | 6a359f79a91a9290dc4ec0adc2924da9 |
+| d:\OneDrive\Holley\Tech and Wiring\Holley_Boost_Control.pdf                                                                                                | 6a359f79a91a9290dc4ec0adc2924da9 |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\tribe_of_hackers.pdf                                                                                            | 7e18dae9027db6ae7b99362048dde81f |
+| d:\OneDrive\Documents\PDF\tribe_of_hackers.pdf                                                                                                             | 7e18dae9027db6ae7b99362048dde81f |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\Humble Bundle 2020\investigatingcryptocurrencies.pdf                                                            | 8049c0d7e311089b120176cb041e9d46 |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\investigatingcryptocurrencies.pdf                                                                               | 8049c0d7e311089b120176cb041e9d46 |
+| d:\OneDrive\Documents\Automotive\Tech\PDF\4R70W.pdf                                                                                                        | 83c8285b46b6735dcc58090c2c44b2af |
+| d:\OneDrive\Documents\Automotive\Tech\Transmission\4R70W\4R70W.pdf                                                                                         | 83c8285b46b6735dcc58090c2c44b2af |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\Humble Bundle 2020\threat_modeling_designing_for_security.pdf                                                   | 909eb42124c3399906973169baeec5e4 |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\threat_modeling_designing_for_security.pdf                                                                      | 909eb42124c3399906973169baeec5e4 |
+| d:\OneDrive\Documents\Cybersecurity\Malware Analysis_masterthesis.pdf                                                                                      | 95c61715a0dca1183db735b9d5544c03 |
+| d:\OneDrive\Documents\PDF\RE_masterthesis.pdf                                                                                                              | 95c61715a0dca1183db735b9d5544c03 |
+| d:\Program Files\Arduino\hardware\arduino\avr\firmwares\wifishield\wifi_dnld\src\Doc\SPB104 product brief.pdf                                              | a2dc8a0ee9e32c467419aff4a30e4b22 |
+| d:\Program Files\Arduino\libraries\WiFi\extras\wifi_dnld\src\Doc\SPB104 product brief.pdf                                                                  | a2dc8a0ee9e32c467419aff4a30e4b22 |
+| d:\OneDrive\Holley\Advanced Tuning.pdf                                                                                                                     | a4d18eaed4406d5d7ba3774c3cc894f5 |
+| d:\OneDrive\Holley\Basic Tuning.pdf                                                                                                                        | a4d18eaed4406d5d7ba3774c3cc894f5 |
+| d:\Downloads\ATI_Catalog.pdf                                                                                                                               | a665a264fed13df0214c39bf2b93cb8f |
+| d:\OneDrive\Documents\PDF\ATI_Catalog.pdf                                                                                                                  | a665a264fed13df0214c39bf2b93cb8f |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\Humble Bundle 2020\malware_analysts_cookbook_and_dvd_tools_and_techniques_for_fighting_malicious_code.pdf       | aa8c6c56ad35d69a65ab2fe700d01bc5 |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\malware_analysts_cookbook_and_dvd_tools_and_techniques_for_fighting_malicious_code.pdf                          | aa8c6c56ad35d69a65ab2fe700d01bc5 |
+| d:\OneDrive\Documents\Automotive\Tech\Transmission\TH400\Rear Band Adjustment.pdf                                                                          | b01ab6a8ca624bd883c94e6ce0d31507 |
+| d:\OneDrive\Documents\Automotive\Tech\Transmission\TH400\TH400 REAR BAND ADJUSTMENT.pdf                                                                    | b01ab6a8ca624bd883c94e6ce0d31507 |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\Humble Bundle 2020\art_of_memory_forensics_detecting_malware_and_threats_in_windows_linux_and_mac_memory.pdf    | b0afcbf08f0c0eb427ea781c2e25c6c6 |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\art_of_memory_forensics_detecting_malware_and_threats_in_windows_linux_and_mac_memory.pdf                       | b0afcbf08f0c0eb427ea781c2e25c6c6 |
+| d:\OneDrive\Documents\Automotive\Delphi Global Catalog.pdf                                                                                                 | b9759997feb7e08d90491025b232beef |
+| d:\OneDrive\Documents\Automotive\Tech\PDF\Delphi Catalog.pdf                                                                                               | b9759997feb7e08d90491025b232beef |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\Humble Bundle 2020\advanced_penetration_testing.pdf                                                             | bd9828ba5182241cce33fdd9fef3e40f |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\advancedpenetrationtesting.pdf                                                                                  | bd9828ba5182241cce33fdd9fef3e40f |
+| d:\Downloads\KILOVAC_EV200_Ser_Contactors_080-727518.pdf                                                                                                   | c0733b8a5b891d1c34008450734dcd51 |
+| d:\OneDrive\Holley\Tech and Wiring\KILOVAC_EV200_Ser_Contactors_080-727518.pdf                                                                             | c0733b8a5b891d1c34008450734dcd51 |
+| d:\OneDrive\Documents\Automotive\Tech\Transmission\TH400\06-178 4L80E-85E and TH400  Reverse Complaints.pdf                                                | c60000085fd34e65e9ccd61134db4f11 |
+| d:\OneDrive\Documents\Automotive\Tech\Transmission\TH400\TH400  Reverse Complaints.pdf                                                                     | c60000085fd34e65e9ccd61134db4f11 |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\Humble Bundle 2020\cryptography_engineering_design_principles_and_practical_applications.pdf                    | cd27c4699d556318fc64dc92f3788b8f |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\cryptography_engineering_design_principles_and_practical_applications.pdf                                       | cd27c4699d556318fc64dc92f3788b8f |
+| d:\OneDrive\Holley\Datalogging.pdf                                                                                                                         | e4ecc0a409cdcf6913d91f21ec302ee5 |
+| d:\OneDrive\Holley\Tech and Wiring\Datalogger.pdf                                                                                                          | e4ecc0a409cdcf6913d91f21ec302ee5 |
+| d:\OneDrive\Holley\Tech and Wiring\Holley_Data_Logging_v3.pdf                                                                                              | e4ecc0a409cdcf6913d91f21ec302ee5 |
+| d:\Downloads\catalog-file-3.pdf                                                                                                                            | eae768055b08d97bb5528c02be56c27c |
+| d:\OneDrive\Documents\Automotive\Ferrea_catalog-file-1-v2.pdf                                                                                              | eae768055b08d97bb5528c02be56c27c |
+| d:\OneDrive\Documents\Automotive\Tech\PDF\Proper_Racecar_Wiring_Principles.pdf                                                                             | eb4972d96db8e8a012691e465c2af2b9 |
+| d:\OneDrive\Documents\Automotive\Tech\PDF\Wiring-How-To_Web.pdf                                                                                            | eb4972d96db8e8a012691e465c2af2b9 |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\Humble Bundle 2020\wireshark_for_security_professionals.pdf                                                     | ece46af6e6712462002962beb51ddae5 |
+| d:\OneDrive\Documents\Cybersecurity\eBooks\wiresharkforsecurityprofessionals.pdf                                                                           | ece46af6e6712462002962beb51ddae5 |
+| d:\OneDrive\Documents\Automotive\Tech\PDF\4L80E.pdf                                                                                                        | f18482bec28b23ac778b3381d101a065 |
+| d:\OneDrive\Documents\Automotive\Tech\Transmission\4L80E.pdf                                                                                               | f18482bec28b23ac778b3381d101a065 |
+| d:\OneDrive\Documents\Automotive\Tech\Transmission\TH400\4L80E.pdf                                                                                         | f18482bec28b23ac778b3381d101a065 |
+| d:\OneDrive\Holley\Tech and Wiring\Holley Quick Start_199r10546rev1.pdf                                                                                    | f386b7e2021b4c3a6451b4e18334d8de |
+| d:\OneDrive\Holley\Tech and Wiring\Quick Start Guide_199r10546rev1.pdf                                                                                     | f386b7e2021b4c3a6451b4e18334d8de |
+| d:\OneDrive\Documents\Automotive\Tech\Transmission\TH400\TH400 FRONT PUMP.pdf                                                                              | fe89941100616ab9dcf6f9d214ccf738 |
+| d:\OneDrive\Documents\Automotive\Tech\Transmission\TH400\TH400 OIL PUMPpdf.pdf                                                                             | fe89941100616ab9dcf6f9d214ccf738 |
++------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------+

@@ -1,11 +1,5 @@
-#!/usr/bin/env python3
-
-__author__ = "DFIRSec (@pulsecode)"
-__description__ = "Search for duplicate files based on extension"
-
 import argparse
 import csv
-import datetime
 import hashlib
 import json
 import os
@@ -13,22 +7,27 @@ import sys
 from pathlib import Path
 
 import fleep
-from colorama import Back, Fore, Style, init
+from colorama import Fore, Style, init
 from prettytable import PrettyTable
 from tqdm import tqdm
 
-rootpath = Path(__file__).resolve().parent
+__author__ = "DFIRSec (@pulsecode)"
+__version__ = "v0.0.5"
+__description__ = "Search for duplicate files based on extension"
+
+PARENT = Path(__file__).resolve().parent
 
 # Holder for unique hashes and file mismatches
 uniqhashes = []
 mismatch = []
 
 # Unicode Symbols and colors -  ref: http://www.fileformat.info/info/unicode/char/a.htm
-PROCESSING = Fore.CYAN + "\u2BA9" + Style.RESET_ALL     # ⮩
-FOUND = Fore.GREEN + "\u2714" + Style.RESET_ALL         # ✔
-NOTFOUND = Fore.YELLOW + "\u00D8" + Style.RESET_ALL     # Ø
-INVALID = Fore.RED + "\u2718" + Style.RESET_ALL         # ✘
-SEPLINE = Fore.BLACK + Style.BRIGHT + "=" * 40 + Style.RESET_ALL
+init()
+PROCESSING = f'{Fore.CYAN}\u2BA9{Fore.RESET}'
+FOUND = f'{Fore.GREEN}\u2714{Fore.RESET}'
+NOTFOUND = f'{Fore.YELLOW}\u00D8{Fore.RESET}'
+INVALID = f'{Fore.RED}\u2718{Fore.RESET}'
+SEPLINE = f'{Fore.BLACK}{Style.BRIGHT}{"=" * 40}{Fore.RESET}'
 
 
 class DupFinder(object):
@@ -40,11 +39,12 @@ class DupFinder(object):
 
     def file_hash(self, file_path):
         with open(file_path, 'rb') as _file:
-            md5_hash = hashlib.md5(_file.read()).hexdigest()
+            md5_hash = hashlib.md5(_file.read(65536)).hexdigest()
         return md5_hash
 
-    def file_finder(self, directory, extension):
-        with open(rootpath.joinpath('known_exts.json')) as _file:
+    @staticmethod
+    def file_finder(directory, extension):
+        with open(PARENT.joinpath('known_exts.json')) as _file:
             known_ftypes = json.load(_file)
 
         if extension in known_ftypes['file_types']:
@@ -65,21 +65,21 @@ class DupFinder(object):
                         except FileNotFoundError:
                             continue
         else:
-            sys.exit(f"{INVALID}  Oops, '{extension}' is not a supported file extension.")
+            sys.exit(f"{INVALID}  Oops, '{extension}' is not a supported file extension.")  # nopep8
 
     def file_processor(self, workingdir, filetype):
         for filename in self.file_finder(workingdir, filetype):
             try:
                 self.file_dict.update({filename: self.file_hash(filename)})
-            except Exception as err:
-                return err
+            except Exception as error:
+                return error
 
     def find_duplicates(self):
         for files, hashes in self.file_dict.items():
             self.matches.setdefault(hashes, []).append(files)
 
         if self.csv_out:
-            self.dump_file = rootpath.joinpath(f'duplicate_matches.csv')
+            self.dump_file = PARENT.joinpath(f'duplicate_matches.csv')
             with open(self.dump_file, 'w', newline='') as csvfile:
                 fieldnames = ['File', 'Hash']
                 writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -93,7 +93,7 @@ class DupFinder(object):
                                 uniqhashes.append(_hash)
 
         else:
-            self.dump_file = rootpath.joinpath(f'duplicate_matches.txt')
+            self.dump_file = PARENT.joinpath(f'duplicate_matches.txt')
             x = PrettyTable(["File", "Hash"])
             x.align = "l"
             x.sortby = "Hash"
@@ -110,7 +110,7 @@ class DupFinder(object):
 
 def main():
     parser = argparse.ArgumentParser(description="Duplicate File Finder")
-    parser.add_argument("WORKING_DIR", help="path to directory to scan")
+    parser.add_argument("WORKING_DIR", help="directory path to scan")
     parser.add_argument("FILE_TYPE", help="file type -- use file extension")
     parser.add_argument('-c', '--csv', action='store_true',
                         help='option to send out to csv file')
@@ -124,11 +124,11 @@ def main():
         dup.file_processor(wdir, ftype)
         dup.find_duplicates()
     except KeyboardInterrupt:
-        sys.exit(1)
+        sys.exit()
 
     if uniqhashes:
-        print(f"{FOUND} Unique file hashes: {len(set(uniqhashes))} of {len(uniqhashes)}")
-        print(f"{FOUND} Duplicate matches written to: {dup.dump_file.resolve(strict=True)}")
+        print(f"{FOUND} Unique file hashes: {len(set(uniqhashes))} of {len(uniqhashes)}")  # nopep8
+        print(f"{FOUND} Duplicate matches written to: {dup.dump_file.resolve(strict=True)}")  # nopep8
         if mismatch:
             print(SEPLINE)
             print(f"{INVALID} Possibly invalid '{ftype}' file format:")
@@ -139,4 +139,16 @@ def main():
 
 
 if __name__ == "__main__":
+    banner = fr"""
+        ____              _______ __        _______           __
+       / __ \__  ______  / ____(_) /__     / ____(_)___  ____/ /__  _____
+      / / / / / / / __ \/ /_  / / / _ \   / /_  / / __ \/ __  / _ \/ ___/
+     / /_/ / /_/ / /_/ / __/ / / /  __/  / __/ / / / / / /_/ /  __/ /
+    /_____/\__,_/ .___/_/   /_/_/\___/  /_/   /_/_/ /_/\__,_/\___/_/
+               /_/
+                                                        {__version__}
+                                                        {__author__}
+    """
+
+    print('{} {} {}'.format(Fore.CYAN, banner, Fore.RESET))
     main()
