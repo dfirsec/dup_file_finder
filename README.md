@@ -29,7 +29,6 @@ pip install -r requirements.txt
 
 ## Requirements
 
-- argparse
 - colorama
 - fleep
 - prettytable
