@@ -12,10 +12,10 @@ from prettytable import PrettyTable
 from tqdm import tqdm
 
 __author__ = "DFIRSec (@pulsecode)"
-__version__ = "v0.0.5"
+__version__ = "v0.0.7"
 __description__ = "Search for duplicate files based on extension"
 
-PARENT = Path(__file__).resolve().parent
+parent = Path(__file__).resolve().parent
 
 # Holder for unique hashes and file mismatches
 uniqhashes = []
@@ -23,11 +23,17 @@ mismatch = []
 
 # Unicode Symbols and colors -  ref: http://www.fileformat.info/info/unicode/char/a.htm
 init()
-PROCESSING = f'{Fore.CYAN}\u2BA9{Fore.RESET}'
-FOUND = f'{Fore.GREEN}\u2714{Fore.RESET}'
-NOTFOUND = f'{Fore.YELLOW}\u00D8{Fore.RESET}'
-INVALID = f'{Fore.RED}\u2718{Fore.RESET}'
-SEPLINE = f'{Fore.BLACK}{Style.BRIGHT}{"=" * 40}{Fore.RESET}'
+processing = f"{Fore.CYAN}\u2BA9{Fore.RESET}"
+found = f"{Fore.GREEN}\u2714{Fore.RESET}"
+notfound = f"{Fore.YELLOW}\u00D8{Fore.RESET}"
+invalid = f"{Fore.RED}\u2718{Fore.RESET}"
+sepline = f'{Fore.BLACK}{Style.BRIGHT}{"=" * 40}{Fore.RESET}'
+
+
+def file_hash(file_path):
+    with open(file_path, "rb") as _file:
+        md5_hash = hashlib.md5(_file.read(65536)).hexdigest()
+    return md5_hash
 
 
 class DupFinder(object):
@@ -37,24 +43,18 @@ class DupFinder(object):
         self.csv_out = csv_out
         self.dump_file = None
 
-    def file_hash(self, file_path):
-        with open(file_path, 'rb') as _file:
-            md5_hash = hashlib.md5(_file.read(65536)).hexdigest()
-        return md5_hash
-
     @staticmethod
     def file_finder(directory, extension):
-        with open(PARENT.joinpath('known_exts.json')) as _file:
+        with open(parent.joinpath("known_exts.json")) as _file:
             known_ftypes = json.load(_file)
 
-        if extension in known_ftypes['file_types']:
-            print(f"{PROCESSING} Scanning: {directory} for '{extension}' files")
-            for root, _, files in tqdm(os.walk(directory),
-                                       ascii=True,
-                                       desc=f"{PROCESSING} Processing",
-                                       ncols=80, unit=" files"):
+        if extension in known_ftypes["file_types"]:
+            print(f"{processing} Scanning: {directory} for '{extension}' files")
+            for root, _, files in tqdm(
+                os.walk(directory), ascii=True, desc=f"{processing} Processing", ncols=80, unit=" files"
+            ):
                 for filename in files:
-                    if filename.endswith('.' + extension):
+                    if filename.endswith("." + extension):
                         try:
                             with open(os.path.join(root, filename), "rb") as _file:
                                 info = fleep.get(_file.read(128))
@@ -65,12 +65,12 @@ class DupFinder(object):
                         except FileNotFoundError:
                             continue
         else:
-            sys.exit(f"{INVALID}  Oops, '{extension}' is not a supported file extension.")  # nopep8
+            sys.exit(f"{invalid}  Oops, '{extension}' is not a supported file extension.")
 
     def file_processor(self, workingdir, filetype):
         for filename in self.file_finder(workingdir, filetype):
             try:
-                self.file_dict.update({filename: self.file_hash(filename)})
+                self.file_dict.update({filename: file_hash(filename)})
             except Exception as error:
                 return error
 
@@ -79,9 +79,9 @@ class DupFinder(object):
             self.matches.setdefault(hashes, []).append(files)
 
         if self.csv_out:
-            self.dump_file = PARENT.joinpath(f'duplicate_matches.csv')
-            with open(self.dump_file, 'w', newline='') as csvfile:
-                fieldnames = ['File', 'Hash']
+            self.dump_file = parent.joinpath(f"duplicate_matches.csv")
+            with open(self.dump_file, "w", newline="") as csvfile:
+                fieldnames = ["File", "Hash"]
                 writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
                 writer.writeheader()
 
@@ -89,11 +89,11 @@ class DupFinder(object):
                     if len(files) > 1:  # if file has more than 1 hash
                         for _file in files:
                             if _hash:
-                                writer.writerow({'File': _file, 'Hash': _hash})
+                                writer.writerow({"File": _file, "Hash": _hash})
                                 uniqhashes.append(_hash)
 
         else:
-            self.dump_file = PARENT.joinpath(f'duplicate_matches.txt')
+            self.dump_file = parent.joinpath(f"duplicate_matches.txt")
             x = PrettyTable(["File", "Hash"])
             x.align = "l"
             x.sortby = "Hash"
@@ -104,7 +104,7 @@ class DupFinder(object):
                         x.add_row([_file, _hash])
                         uniqhashes.append(_hash)
             if uniqhashes:
-                with open(self.dump_file, 'w') as output:
+                with open(self.dump_file, "w") as output:
                     output.write(x.get_string())
 
 
@@ -112,8 +112,7 @@ def main():
     parser = argparse.ArgumentParser(description="Duplicate File Finder")
     parser.add_argument("WORKING_DIR", help="directory path to scan")
     parser.add_argument("FILE_TYPE", help="file type -- use file extension")
-    parser.add_argument('-c', '--csv', action='store_true',
-                        help='option to send out to csv file')
+    parser.add_argument("-c", "--csv", action="store_true", help="option to send out to csv file")
     args = parser.parse_args()
 
     wdir = args.WORKING_DIR
@@ -127,15 +126,15 @@ def main():
         sys.exit()
 
     if uniqhashes:
-        print(f"{FOUND} Unique file hashes: {len(set(uniqhashes))} of {len(uniqhashes)}")  # nopep8
-        print(f"{FOUND} Duplicate matches written to: {dup.dump_file.resolve(strict=True)}")  # nopep8
+        print(f"{found} Unique file hashes: {len(set(uniqhashes))} of {len(uniqhashes)}")
+        print(f"{found} Duplicate matches written to: {dup.dump_file.resolve(strict=True)}")
         if mismatch:
-            print(SEPLINE)
-            print(f"{INVALID} Possibly invalid '{ftype}' file format:")
+            print(sepline)
+            print(f"{invalid} Possibly invalid '{ftype}' file format:")
             for num, item in enumerate(mismatch, start=1):
                 print(f"  [{num}] {item}")
     else:
-        print(f"{NOTFOUND} No duplicates found.")
+        print(f"{notfound} No duplicates found.")
 
 
 if __name__ == "__main__":
@@ -150,5 +149,5 @@ if __name__ == "__main__":
                                                         {__author__}
     """
 
-    print('{} {} {}'.format(Fore.CYAN, banner, Fore.RESET))
+    print(f"{Fore.CYAN}{banner}{Fore.RESET}")
     main()
