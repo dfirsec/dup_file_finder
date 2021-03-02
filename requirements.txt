@@ -1,0 +1,5 @@
+colorama>=0.4.3
+fleep>=1.0.1
+prettytable>=0.7.2
+requests>=2.24.0
+tqdm>=4.48.2
