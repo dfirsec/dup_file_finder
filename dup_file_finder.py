@@ -34,8 +34,8 @@ sepline = f'{Fore.BLACK}{Style.BRIGHT}{"=" * 40}{Fore.RESET}'
 
 def file_hash(file_path):
     with open(file_path, "rb") as _file:
-        md5_hash = hashlib.md5(_file.read(65536)).hexdigest()
-    return md5_hash
+        sha256 = hashlib.sha256(_file.read(65536)).hexdigest()
+    return sha256
 
 
 class DupFinder:
@@ -80,8 +80,8 @@ class DupFinder:
             knownlist = wrapper.wrap(str(known["extensions"]))
             print(f"{invalid}  File extension not a supported: {Fore.LIGHTMAGENTA_EX}{extension}{Fore.RESET}")
             print(f"\nUse only the following:\n{sepline}")
-            for extension in knownlist:
-                print(extension)
+            for ext in knownlist:
+                print(ext)
             sys.exit()
 
     def processor(self, workingdir, extension):
