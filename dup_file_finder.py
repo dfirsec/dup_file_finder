@@ -49,7 +49,7 @@ class DupFinder(object):
     def walkdir(folder):
         for root, _, files in os.walk(folder):
             for filename in files:
-                yield os.path.abspath(os.path.join(root, filename))
+                yield Path(root).joinpath(filename).resolve()
 
     def finder(self, directory, extension):
         with open(parent.joinpath("known_exts.json")) as f:
