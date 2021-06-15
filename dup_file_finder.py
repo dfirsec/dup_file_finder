@@ -4,6 +4,7 @@ import hashlib
 import json
 import os
 import sys
+from functools import partial
 from pathlib import Path
 from textwrap import TextWrapper
 
@@ -32,10 +33,12 @@ invalid = f"{Fore.RED}\u2716{Fore.RESET}"
 sepline = f'{Fore.BLACK}{Style.BRIGHT}{"=" * 40}{Fore.RESET}'
 
 
-def file_hash(file_path):
-    with open(file_path, "rb") as _file:
-        sha256 = hashlib.sha256(_file.read(65536)).hexdigest()
-    return sha256
+def file_hash(file_path, blocksize=65536):
+    hasher = hashlib.sha256()
+    with open(file_path, "rb") as f:
+        for chunk in iter(partial(f.read, blocksize), b""):
+            hasher.update(chunk)
+    return hasher.hexdigest()
 
 
 class DupFinder:
@@ -86,7 +89,7 @@ class DupFinder:
 
     def processor(self, workingdir, extension):
         for filename in self.finder(workingdir, extension):
-            self.file_dict.update({filename: file_hash(filename)})
+            self.file_dict.update({filename: file_hash(filename).upper()})
 
     def duplicates(self):
         for files, hashes in self.file_dict.items():
