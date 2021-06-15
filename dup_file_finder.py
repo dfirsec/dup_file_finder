@@ -38,10 +38,10 @@ def file_hash(file_path):
     return md5_hash
 
 
-class DupFinder(object):
+class DupFinder:
     def __init__(self, csv_out):
-        self.file_dict = dict()
-        self.matches = dict()
+        self.file_dict = {}
+        self.matches = {}
         self.csv_out = csv_out
         self.dump_file = None
 
@@ -61,11 +61,9 @@ class DupFinder(object):
             for filepath in self.walkdir(directory):
                 filecounter += 1
 
-            for filepath in tqdm(self.walkdir(directory), 
-                                 total=filecounter, 
-                                 desc=f"{processing} Processing", 
-                                 ncols=90, 
-                                 unit=" files"):
+            for filepath in tqdm(
+                self.walkdir(directory), total=filecounter, desc=f"{processing} Processing", ncols=90, unit=" files"
+            ):
                 p = Path(filepath)
                 if p.suffix == f".{extension}":
                     try:
@@ -79,13 +77,12 @@ class DupFinder(object):
                         continue
         else:
             wrapper = TextWrapper(width=60)
-            knownlist = wrapper.wrap(str(known['extensions']))
+            knownlist = wrapper.wrap(str(known["extensions"]))
             print(f"{invalid}  File extension not a supported: {Fore.LIGHTMAGENTA_EX}{extension}{Fore.RESET}")
             print(f"\nUse only the following:\n{sepline}")
             for extension in knownlist:
                 print(extension)
             sys.exit()
-            
 
     def processor(self, workingdir, extension):
         for filename in self.finder(workingdir, extension):
@@ -99,7 +96,7 @@ class DupFinder(object):
             self.matches.setdefault(hashes, []).append(files)
 
         if self.csv_out:
-            self.dump_file = parent.joinpath(f"duplicate_matches.csv")
+            self.dump_file = parent.joinpath("duplicate_matches.csv")
             with open(self.dump_file, "w", newline="") as csvfile:
                 fieldnames = ["File", "Hash"]
                 writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -113,7 +110,7 @@ class DupFinder(object):
                                 uniqhashes.append(_hash)
 
         else:
-            self.dump_file = parent.joinpath(f"duplicate_matches.txt")
+            self.dump_file = parent.joinpath("duplicate_matches.txt")
             x = PrettyTable(["File", "Hash"])
             x.align = "l"
             x.sortby = "Hash"
@@ -170,7 +167,7 @@ if __name__ == "__main__":
     """
 
     print(f"{Fore.CYAN}{banner}{Fore.RESET}")
-    
+
     # check python version
     if not sys.version_info.major == 3 and sys.version_info.minor >= 7:
         print("Python 3.7 or higher is required.")
