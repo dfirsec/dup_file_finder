@@ -59,7 +59,7 @@ class DupFinder:
             print(f"{processing} Scanning: {directory} for '{extension}' files")
             print(f"{processing} Getting file count...", sep=" ", end=" ")
             filecounter = len(list(self.walkdir(directory)))
-            print(f"{filecounter} files")
+            print(f"{filecounter:,} files")
 
             for filepath in tqdm(
                 self.walkdir(directory), total=filecounter, desc=f"{processing} Processing", ncols=90, unit=" files"
