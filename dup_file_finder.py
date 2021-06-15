@@ -62,7 +62,11 @@ class DupFinder:
             print(f"{filecounter} files")
 
             for filepath in tqdm(
-                self.walkdir(directory), total=filecounter, desc=f"{processing} Processing", ncols=90, unit=" files"
+                self.walkdir(directory),
+                total=filecounter,
+                desc=f"{processing} Processing",
+                ncols=90,
+                unit=" files",
             ):
                 p = Path(filepath)
                 if p.suffix == f".{extension}":
@@ -78,7 +82,9 @@ class DupFinder:
         else:
             wrapper = TextWrapper(width=60)
             knownlist = wrapper.wrap(str(known["extensions"]))
-            print(f"{invalid}  File extension not a supported: {Fore.LIGHTMAGENTA_EX}{extension}{Fore.RESET}")
+            print(
+                f"{invalid}  File extension not a supported: {Fore.LIGHTMAGENTA_EX}{extension}{Fore.RESET}"
+            )
             print(f"\nUse only the following:\n{sepline}")
             for ext in knownlist:
                 print(ext)
@@ -126,7 +132,9 @@ def main():
     parser = argparse.ArgumentParser(description="Duplicate File Finder")
     parser.add_argument("PATH", help="directory path to scan")
     parser.add_argument("EXT", help="file extension")
-    parser.add_argument("-c", "--csv", action="store_true", help="option to send out to csv file")
+    parser.add_argument(
+        "-c", "--csv", action="store_true", help="option to send out to csv file"
+    )
     args = parser.parse_args()
 
     wdir = args.PATH
@@ -140,8 +148,12 @@ def main():
         sys.exit()
 
     if uniqhashes:
-        print(f"{found} Unique file hashes: {len(set(uniqhashes))} of {len(uniqhashes)}")
-        print(f"{found} Duplicate matches written to: {dup.dump_file.resolve(strict=True)}")
+        print(
+            f"{found} Unique file hashes: {len(set(uniqhashes))} of {len(uniqhashes)}"
+        )
+        print(
+            f"{found} Duplicate matches written to: {dup.dump_file.resolve(strict=True)}"
+        )
         if mismatch:
             print(sepline)
             print(f"{invalid} Possibly invalid '{ftype}' file format:")
@@ -168,6 +180,8 @@ if __name__ == "__main__":
     # check python version
     if not sys.version_info.major == 3 and sys.version_info.minor >= 7:
         print("Python 3.7 or higher is required.")
-        sys.exit(f"Your Python Version: {sys.version_info.major}.{sys.version_info.minor}")
+        sys.exit(
+            f"Your Python Version: {sys.version_info.major}.{sys.version_info.minor}"
+        )
 
     main()
