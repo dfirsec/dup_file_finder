@@ -57,9 +57,9 @@ class DupFinder:
 
         if extension in known["extensions"]:
             print(f"{processing} Scanning: {directory} for '{extension}' files")
-            filecounter = 0
-            for filepath in self.walkdir(directory):
-                filecounter += 1
+            print(f"{processing} Getting file count...", sep=" ", end=" ")
+            filecounter = len(list(self.walkdir(directory)))
+            print(f"{filecounter} files")
 
             for filepath in tqdm(
                 self.walkdir(directory), total=filecounter, desc=f"{processing} Processing", ncols=90, unit=" files"
