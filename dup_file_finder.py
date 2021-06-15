@@ -86,10 +86,7 @@ class DupFinder:
 
     def processor(self, workingdir, extension):
         for filename in self.finder(workingdir, extension):
-            try:
-                self.file_dict.update({filename: file_hash(filename)})
-            except Exception as error:
-                return error
+            self.file_dict.update({filename: file_hash(filename)})
 
     def duplicates(self):
         for files, hashes in self.file_dict.items():
