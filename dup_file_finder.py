@@ -49,15 +49,15 @@ class DupFinder:
         self.dump_file = None
 
     def scantree(self, path):
-        try:
-            with scandir(path) as it:
-                for entry in it:
+        with scandir(path) as it:
+            for entry in it:
+                try:
                     if not entry.name.startswith(".") and entry.is_dir(follow_symlinks=False):
                         yield from self.scantree(entry.path)
                     else:
                         yield entry.path
-        except PermissionError as e:
-            print(e)
+                except PermissionError:
+                    continue
 
     def finder(self, directory, extension):
         with open(parent.joinpath("known_exts.json")) as f:
