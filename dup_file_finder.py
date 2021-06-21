@@ -2,9 +2,9 @@ import argparse
 import csv
 import hashlib
 import json
-import os
 import sys
 from functools import partial
+from os import scandir
 from pathlib import Path
 from textwrap import TextWrapper
 
@@ -14,7 +14,7 @@ from prettytable import PrettyTable
 from tqdm import tqdm
 
 __author__ = "DFIRSec (@pulsecode)"
-__version__ = "v0.0.8"
+__version__ = "v0.0.9"
 __description__ = "Search for duplicate files based on extension"
 
 # Base directory paths
@@ -48,11 +48,16 @@ class DupFinder:
         self.csv_out = csv_out
         self.dump_file = None
 
-    @staticmethod
-    def walkdir(folder):
-        for root, _, files in os.walk(folder):
-            for filename in files:
-                yield Path(root).joinpath(filename).resolve()
+    def scantree(self, path):
+        try:
+            with scandir(path) as it:
+                for entry in it:
+                    if not entry.name.startswith(".") and entry.is_dir(follow_symlinks=False):
+                        yield from self.scantree(entry.path)
+                    else:
+                        yield entry.path
+        except PermissionError as e:
+            print(e)
 
     def finder(self, directory, extension):
         with open(parent.joinpath("known_exts.json")) as f:
@@ -61,11 +66,11 @@ class DupFinder:
         if extension in known["extensions"]:
             print(f"{processing} Scanning: {directory} for '{extension}' files")
             print(f"{processing} Getting file count...", sep=" ", end=" ")
-            filecounter = len(list(self.walkdir(directory)))
+            filecounter = len(list(self.scantree(directory)))
             print(f"{filecounter:,} files")
 
             for filepath in tqdm(
-                self.walkdir(directory), total=filecounter, desc=f"{processing} Processing", ncols=90, unit=" files"
+                self.scantree(directory), total=filecounter, desc=f"{processing} Processing", ncols=90, unit=" files"
             ):
                 p = Path(filepath)
                 if p.suffix == f".{extension}":
