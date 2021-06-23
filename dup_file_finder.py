@@ -48,8 +48,8 @@ class DupFinder:
         self.csv_out = csv_out
         self.dump_file = None
 
-    def scantree(self, path):
-        with scandir(path) as it:
+    def scantree(self, basepath):
+        with scandir(basepath) as it:
             for entry in it:
                 try:
                     if not entry.name.startswith(".") and entry.is_dir(follow_symlinks=False):
