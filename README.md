@@ -1,6 +1,6 @@
 # Duplicate File Finder
 
-[![DeepSource](https://deepsource.io/gh/dfirsec/dup_file_finder.svg/?label=active+issues&show_trend=true&token=-cJj8_eBNXE2f4MRQBaqyzEv)](https://deepsource.io/gh/dfirsec/dup_file_finder/?ref=repository-badge) ![Generic badge](https://img.shields.io/badge/python-3.8-blue.svg)
+![Generic badge](https://img.shields.io/badge/python-3.8-blue.svg)
 
 `dup_file_finder.py`: Search for duplicate files based on extension. Utilizes [fleep](https://github.com/floyernick/fleep-py) to validate the file format.
 Outputs the results to either a table txt file, or option for csv file.
