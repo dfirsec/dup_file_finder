@@ -43,6 +43,7 @@ def file_hash(file_path, blocksize=65536):
 
 class DupFinder:
     def __init__(self, csv_out):
+        """Scans directory tree and returns duplicate entries."""
         self.file_dict = {}
         self.matches = {}
         self.csv_out = csv_out
