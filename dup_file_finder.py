@@ -8,10 +8,10 @@ from os import scandir
 from pathlib import Path
 from textwrap import TextWrapper
 
-import fleep
 from colorama import Fore, Style, init
 from prettytable import PrettyTable
 from tqdm import tqdm
+import fleep
 
 __author__ = "DFIRSec (@pulsecode)"
 __version__ = "v0.0.9"
@@ -35,23 +35,24 @@ sepline = f'{Fore.BLACK}{Style.BRIGHT}{"=" * 40}{Fore.RESET}'
 
 def file_hash(file_path, blocksize=65536):
     hasher = hashlib.sha256()
-    with open(file_path, "rb") as f:
-        for chunk in iter(partial(f.read, blocksize), b""):
+    with open(file_path, "rb") as file_obj:
+        for chunk in iter(partial(file_obj.read, blocksize), b""):
             hasher.update(chunk)
     return hasher.hexdigest()
 
 
 class DupFinder:
+    """Scans directory tree and returns duplicate entries."""
+
     def __init__(self, csv_out):
-        """Scans directory tree and returns duplicate entries."""
         self.file_dict = {}
         self.matches = {}
         self.csv_out = csv_out
         self.dump_file = None
 
     def scantree(self, basepath):
-        with scandir(basepath) as it:
-            for entry in it:
+        with scandir(basepath) as entries:
+            for entry in entries:
                 try:
                     if not entry.name.startswith(".") and entry.is_dir(follow_symlinks=False):
                         yield from self.scantree(entry.path)
@@ -61,8 +62,8 @@ class DupFinder:
                     continue
 
     def finder(self, directory, extension):
-        with open(parent.joinpath("known_exts.json")) as f:
-            known = json.load(f)
+        with open(parent.joinpath("known_exts.json")) as file_obj:
+            known = json.load(file_obj)
 
         if extension in known["extensions"]:
             print(f"{processing} Scanning: {directory} for '{extension}' files")
@@ -73,11 +74,11 @@ class DupFinder:
             for filepath in tqdm(
                 self.scantree(directory), total=filecounter, desc=f"{processing} Processing", ncols=90, unit=" files"
             ):
-                p = Path(filepath)
-                if p.suffix == f".{extension}":
+                _path = Path(filepath)
+                if _path.suffix == f".{extension}":
                     try:
-                        with open(filepath, "rb") as f:
-                            data = fleep.get(f.read(128))
+                        with open(filepath, "rb") as file_obj:
+                            data = fleep.get(file_obj.read(128))
                         if data.extension_matches(extension):
                             yield filepath
                         else:
@@ -117,18 +118,18 @@ class DupFinder:
 
         else:
             self.dump_file = parent.joinpath("duplicate_matches.txt")
-            x = PrettyTable(["File", "Hash"])
-            x.align = "l"
-            x.sortby = "Hash"
+            ptable = PrettyTable(["File", "Hash"])
+            ptable.align = "l"
+            ptable.sortby = "Hash"
 
             for _hash, files in self.matches.items():
                 if len(files) > 1:  # if file has more than 1 hash
                     for _file in files:
-                        x.add_row([_file, _hash])
+                        ptable.add_row([_file, _hash])
                         uniqhashes.append(_hash)
             if uniqhashes:
                 with open(self.dump_file, "w") as output:
-                    output.write(x.get_string())
+                    output.write(ptable.get_string())
 
 
 def main():
