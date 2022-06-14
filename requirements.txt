@@ -1,4 +1,4 @@
-colorama>=0.4.3
-fleep>=1.0.1
-prettytable>=0.7.2
-tqdm>=4.48.2
+colorama
+fleep
+prettytable
+tqdm
