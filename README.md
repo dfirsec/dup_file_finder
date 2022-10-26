@@ -19,20 +19,12 @@ optional arguments:
   -c, --csv   option to send out to csv file
 ```
 
-## Requirements
-
-- colorama
-- fleep
-- prettytable
-- requests
-- tqdm
-
 ## Installation
 
 ```text
 git clone https://github.com/dfirsec/dup_file_finder.git
 cd dup_file_finder
-pip install -r requirements.txt
+pip install .
 ```
 
 ## Example runs

@@ -1,4 +1,4 @@
 colorama
 fleep
-prettytable
+rich
 tqdm
