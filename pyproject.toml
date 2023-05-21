@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "dup-file-finder"
 version = "0.1.0"
-description = "Search for duplicate files based on extension."
+description = "Scans directory tree and returns duplicate entries."
 authors = ["Mitch Haddadi <12067255+dfirsec@users.noreply.github.com>"]
 license = "MIT"
 readme = "README.md"
@@ -10,9 +10,8 @@ packages = [{include = "dup_file_finder"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 colorama = "^0.4.6"
-fleep = "^1.0.1"
-rich = "^12.6.0"
-tqdm = "^4.64.1"
+rich = "^13.3.5"
+tqdm = "^4.65.0"
 
 
 [build-system]

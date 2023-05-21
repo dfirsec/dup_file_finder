@@ -2,53 +2,63 @@
 
 ![Generic badge](https://img.shields.io/badge/python-3.8-blue.svg)
 
-`dup_file_finder.py`: Search for duplicate files based on extension. Utilizes [fleep](https://github.com/floyernick/fleep-py) to validate the file format.
-Outputs the results to either a table txt file, or option for csv file.
+This script scans a directory tree and identifies duplicate files with a given file extension. It uses SHA256 hashing to compare the files and outputs the duplicate matches to a CSV file.
 
-```text
-usage: dup_file_finder.py [-h] [-c] PATH EXT
+File signatures courtesy of fleep (@ua-nick).
 
-Duplicate File Finder
+## Prerequisites
 
-positional arguments:
-  PATH        directory path to scan
-  EXT         file extension
-
-optional arguments:
-  -h, --help  show this help message and exit
-  -c, --csv   option to send out to csv file
-```
+Python 3.8 or higher
 
 ## Installation
 
+1. Clone the repository:
+
 ```text
 git clone https://github.com/dfirsec/dup_file_finder.git
+```
+
+2. Navigate to the project directory:
+
+```text
 cd dup_file_finder
-pip install .
 ```
 
-## Example runs
-
-Standard run with csv option...
+3. Install the dependencies using poetry:
 
 ```text
-C:\dup_file_finder>python dup_img_finder.py c:\Users txt --csv
-⮩ Scanning: c:\Users for 'txt' files
-⮩ Processing: 24979 files [00:54, 457.15 files/s]
-✔ Unique file hashes: 349 of 956
-✔ Duplicate matches written to: C:\dup_file_finder\duplicate_matches.csv
+poetry install
 ```
 
-Results with possible mismatches...
+## Usage
+
+1. Create the virtual environment
 
 ```text
-C:\dup_file_finder>python dup_img_finder.py c:\Users\enduser tiff
-⮩ Scanning: c:\Users for 'tiff' files
-⮩ Processing: 25226 files [00:05, 4374.17 files/s]
-✔ Unique file hashes: 1 of 2
-✔ Duplicate matches written to: C:\dup_file_finder\duplicate_matches.txt
-=======================================
-✘ Possibly invalid 'tiff' file format:
-c:\Users\enduser\computers.tiff
-c:\Users\enduser\hello.tiff
+poetry shell
 ```
+
+2. Run using the following commands:
+
+```text
+python dup_file_finder.py dirpath ext
+```
+
+- `dirpath`: The directory path to scan for duplicate files.
+- `ext`: The file extension to scan for.
+
+### Example
+
+```text
+python dup_file_finder.py /path/to/directory pdf
+```
+
+This will scan the specified directory for PDF files and identify duplicate matches. The results will be saved to a CSV file named duplicate_matches.csv in the results directory.
+
+## Contributing
+
+Contributions are welcome! If you find any issues or have suggestions for improvement, please create an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.
