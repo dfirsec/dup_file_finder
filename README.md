@@ -4,7 +4,7 @@
 
 This script scans a directory tree and identifies duplicate files with a given file extension. It uses SHA256 hashing to compare the files and outputs the duplicate matches to a CSV file.
 
-File signatures courtesy of: fleep [@ua-nick](https://github.com/ua-nick)
+File signatures courtesy of: fleep [@ua-nick](https://github.com/ua-nick/fleep-py)
 
 ## Prerequisites
 
