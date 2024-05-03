@@ -11,7 +11,7 @@ packages = [{include = "dup_file_finder"}]
 python = "^3.11"
 colorama = "^0.4.6"
 rich = "^13.3.5"
-tqdm = "^4.65.0"
+tqdm = "^4.66.3"
 
 
 [build-system]
